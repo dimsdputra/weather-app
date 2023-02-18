@@ -110,22 +110,22 @@ const App = () => {
       icon = <IoMdCloudy />;
       break;
     case "Haze":
-      icon = <BsCloudHaze2Fill className="text-[#6e777a]"/>;
+      icon = <BsCloudHaze2Fill className="text-[#6e777a]" />;
       break;
     case "Rain":
-      icon = <IoMdRainy className="text-[#6e777a]"/>;
+      icon = <IoMdRainy className="text-[#6e777a]" />;
       break;
     case "Clear":
-      icon = <IoMdSunny className="text-[#ffde33]"/>;
+      icon = <IoMdSunny className="text-[#ffde33]" />;
       break;
     case "Drizzle":
-      icon = <BsCloudDrizzleFill className="text-[#6e777a]"/>;
+      icon = <BsCloudDrizzleFill className="text-[#6e777a]" />;
       break;
     case "Snow":
-      icon = <IoMdSnow className="text-[#31cafb]"/>;
+      icon = <IoMdSnow className="text-[#31cafb]" />;
       break;
     case "Thunderstorm":
-      icon = <IoMdThunderstorm className="text-[#3b4346]"/>;
+      icon = <IoMdThunderstorm className="text-[#3b4346]" />;
       break;
 
     default:
@@ -136,8 +136,10 @@ const App = () => {
   const date = new Date();
 
   return (
-    <div className="w-full h-screen bg-gradientBg bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center px-4 lg:px-0">
-      {errorMsg && <div className="w-full max-w-[450px] lg:max-w-[450px] bg-[#ff208c] text-white absolute z-10 top-10 lg-top-10 p-4 capitalize rounded-md">{`${errorMsg.response.data.message}`}</div>}
+    <div className="w-full h-full bg-gradientBg bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center px-4 py-4 lg:px-0">
+      {errorMsg && (
+        <div className="w-full max-w-[450px] lg:max-w-[450px] bg-[#ff208c] text-white absolute z-10 top-10 lg-top-10 p-4 capitalize rounded-md">{`${errorMsg.response.data.message}`}</div>
+      )}
       {/* form */}
       <form
         className={`${
