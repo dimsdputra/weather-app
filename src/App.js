@@ -21,8 +21,8 @@ import {
 import { TbTemperatureCelsius } from "react-icons/tb";
 import { ImSpinner8 } from "react-icons/im";
 
-//30f19104ac4a548f2102461d0dbaa1db
-const APIkey = "30f19104ac4a548f2102461d0dbaa1db";
+const apiKey = process.env.REACT_APP_APIKEY
+const baseUrl = process.env.REACT_APP_BASEURL
 
 const App = () => {
   const [data, setData] = useState(null);
@@ -66,7 +66,7 @@ const App = () => {
     //set Loading
     setLoading(true);
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${APIkey}`;
+    const url = `${baseUrl}/weather?q=${location}&units=metric&appid=${apiKey}`;
 
     axios
       .get(url)
@@ -136,7 +136,7 @@ const App = () => {
   const date = new Date();
 
   return (
-    <div className="w-full h-full bg-gradientBg bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center px-4 py-4 lg:px-0">
+    <div className="w-full h-screen bg-gradientBg bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center px-4 py-4 lg:px-0">
       {errorMsg && (
         <div className="w-full max-w-[450px] lg:max-w-[450px] bg-[#ff208c] text-white absolute z-10 top-10 lg-top-10 p-4 capitalize rounded-md">{`${errorMsg.response.data.message}`}</div>
       )}
